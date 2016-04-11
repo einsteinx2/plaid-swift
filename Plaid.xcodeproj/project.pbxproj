@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		7275E8CC1CB9D29D002E6606 /* Plaid.h in Headers */ = {isa = PBXBuildFile; fileRef = 7275E8CB1CB9D29D002E6606 /* Plaid.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7275E8D31CB9D29D002E6606 /* Plaid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7275E8C81CB9D29D002E6606 /* Plaid.framework */; };
-		7275E8D81CB9D29D002E6606 /* PlaidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7275E8D71CB9D29D002E6606 /* PlaidTests.swift */; };
+		72FB18291CBB4EA500B385D2 /* PlaidClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB18281CBB4EA500B385D2 /* PlaidClient.swift */; };
+		72FB182B1CBB5D7300B385D2 /* PlaidConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB182A1CBB5D7300B385D2 /* PlaidConstants.swift */; };
+		72FB182D1CBB5F6E00B385D2 /* PlaidClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB182C1CBB5F6E00B385D2 /* PlaidClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +29,10 @@
 		7275E8CB1CB9D29D002E6606 /* Plaid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plaid.h; sourceTree = "<group>"; };
 		7275E8CD1CB9D29D002E6606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7275E8D21CB9D29D002E6606 /* PlaidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7275E8D71CB9D29D002E6606 /* PlaidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidTests.swift; sourceTree = "<group>"; };
 		7275E8D91CB9D29D002E6606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72FB18281CBB4EA500B385D2 /* PlaidClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaidClient.swift; sourceTree = "<group>"; };
+		72FB182A1CBB5D7300B385D2 /* PlaidConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaidConstants.swift; sourceTree = "<group>"; };
+		72FB182C1CBB5F6E00B385D2 /* PlaidClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaidClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				7275E8CB1CB9D29D002E6606 /* Plaid.h */,
+				72FB18281CBB4EA500B385D2 /* PlaidClient.swift */,
+				72FB182A1CBB5D7300B385D2 /* PlaidConstants.swift */,
 				7275E8CD1CB9D29D002E6606 /* Info.plist */,
 			);
 			path = Plaid;
@@ -80,7 +86,7 @@
 		7275E8D61CB9D29D002E6606 /* PlaidTests */ = {
 			isa = PBXGroup;
 			children = (
-				7275E8D71CB9D29D002E6606 /* PlaidTests.swift */,
+				72FB182C1CBB5F6E00B385D2 /* PlaidClientTests.swift */,
 				7275E8D91CB9D29D002E6606 /* Info.plist */,
 			);
 			path = PlaidTests;
@@ -195,6 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72FB182B1CBB5D7300B385D2 /* PlaidConstants.swift in Sources */,
+				72FB18291CBB4EA500B385D2 /* PlaidClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7275E8D81CB9D29D002E6606 /* PlaidTests.swift in Sources */,
+				72FB182D1CBB5F6E00B385D2 /* PlaidClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +319,7 @@
 		7275E8DD1CB9D29D002E6606 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -322,12 +331,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.istx25.Plaid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		7275E8DE1CB9D29D002E6606 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -381,6 +392,7 @@
 				7275E8DE1CB9D29D002E6606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7275E8DF1CB9D29D002E6606 /* Build configuration list for PBXNativeTarget "PlaidTests" */ = {
 			isa = XCConfigurationList;
@@ -389,6 +401,7 @@
 				7275E8E11CB9D29D002E6606 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
