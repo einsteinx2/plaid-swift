@@ -28,15 +28,15 @@ private protocol TransactionElementsTrait {
     var pending: Bool? { get }
     var type: [String: NSObject]? { get }
     var category: [String: [String]]? { get }
-    var categoryID: String { get }
+    var categoryID: String? { get }
     
     var score: [String: NSObject] { get }
     var stateScore: Float? { get }
     var cityScore: Float? { get }
     var addressScore: Float? { get }
     
-    var referenceNumber: Int { get }
-    var pendingTransaction: Bool { get }
+    var referenceNumber: Int? { get }
+    var pendingTransaction: Bool? { get }
     
 }
 
@@ -44,8 +44,38 @@ private protocol TransactionInitializationTrait {
     init(transaction: [String: NSObject])
 }
 
-public struct Transaction {
+public struct Transaction: TransactionElementsTrait {
     
+    // MARK: Properties
     
+    public var id: String
+    public var account: String
+    
+    public var name: String?
+    public var amount: Float?
+    public var date: NSDate?
+    
+    internal var meta: [String: NSObject]?
+    public var address: String?
+    public var city: String?
+    public var state: String?
+    public var zip: String?
+    public var longitude: Double?
+    public var latitude: Double?
+    
+    public var pending: Bool?
+    public var type: [String: NSObject]?
+    public var category: [String: [String]]?
+    public var categoryID: String?
+    
+    internal var score: [String: NSObject]
+    public var stateScore: Float?
+    public var cityScore: Float?
+    public var addressScore: Float?
+    
+    public var referenceNumber: Int?
+    public var pendingTransaction: Bool?
+    
+    // MARK: Initialisation
     
 }
