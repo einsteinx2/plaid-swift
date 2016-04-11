@@ -11,6 +11,7 @@ import XCTest
 
 class AccountTests: XCTestCase {
 
+    /// Creates an *unstructured* Account (Sample data from documentation).
     func createTestableDictionary() -> [String: NSObject] {
         let accountDictionary = ["_id": "YzzrzBrO9OSzo6BXwAvVuL5dmMKMqkhOoEqeo",
                        "_item": "aWWVW4VqGqIdaP495QyOSVLN1nzjLwhXaPDJJ",
@@ -24,6 +25,7 @@ class AccountTests: XCTestCase {
         return accountDictionary
     }
     
+    /// Initialises a *structured* Account valuetype.
     func testCreateAccount() {
         let accountDictionary = self.createTestableDictionary()
         let account = Account(account: accountDictionary)

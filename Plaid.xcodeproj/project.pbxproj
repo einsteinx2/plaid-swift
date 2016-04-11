@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7275E8CC1CB9D29D002E6606 /* Plaid.h in Headers */ = {isa = PBXBuildFile; fileRef = 7275E8CB1CB9D29D002E6606 /* Plaid.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7275E8D31CB9D29D002E6606 /* Plaid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7275E8C81CB9D29D002E6606 /* Plaid.framework */; };
+		72B27FCA1CBB878300828CE3 /* TransactionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B27FC91CBB878300828CE3 /* TransactionTests.swift */; };
 		72FB18291CBB4EA500B385D2 /* PlaidClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB18281CBB4EA500B385D2 /* PlaidClient.swift */; };
 		72FB182B1CBB5D7300B385D2 /* PlaidConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB182A1CBB5D7300B385D2 /* PlaidConstants.swift */; };
 		72FB182D1CBB5F6E00B385D2 /* PlaidClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB182C1CBB5F6E00B385D2 /* PlaidClientTests.swift */; };
@@ -33,6 +34,7 @@
 		7275E8CD1CB9D29D002E6606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7275E8D21CB9D29D002E6606 /* PlaidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlaidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7275E8D91CB9D29D002E6606 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72B27FC91CBB878300828CE3 /* TransactionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTests.swift; sourceTree = "<group>"; };
 		72FB18281CBB4EA500B385D2 /* PlaidClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaidClient.swift; sourceTree = "<group>"; };
 		72FB182A1CBB5D7300B385D2 /* PlaidConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaidConstants.swift; sourceTree = "<group>"; };
 		72FB182C1CBB5F6E00B385D2 /* PlaidClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaidClientTests.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				72FB182C1CBB5F6E00B385D2 /* PlaidClientTests.swift */,
 				72FB18331CBB775300B385D2 /* AccountTests.swift */,
+				72B27FC91CBB878300828CE3 /* TransactionTests.swift */,
 				7275E8D91CB9D29D002E6606 /* Info.plist */,
 			);
 			path = PlaidTests;
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72FB182D1CBB5F6E00B385D2 /* PlaidClientTests.swift in Sources */,
+				72B27FCA1CBB878300828CE3 /* TransactionTests.swift in Sources */,
 				72FB18341CBB775300B385D2 /* AccountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
