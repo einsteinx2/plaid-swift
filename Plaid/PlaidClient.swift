@@ -17,7 +17,7 @@ public class PlaidClient: NSObject {
     
     // MARK: Location
     private var productionMode: Bool
-    public var apiHost: String {
+    internal var apiHost: String {
         get {
             return self.apiHost(productionMode: productionMode)
         }
@@ -38,7 +38,7 @@ public class PlaidClient: NSObject {
     }
     
     // MARK: Modelling
-    func apiHost(productionMode productionMode: Bool) -> String {
+    private func apiHost(productionMode productionMode: Bool) -> String {
         guard productionMode else {
             return PlaidConstants.DevelopmentAPIHost
         }
