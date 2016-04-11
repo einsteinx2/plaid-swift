@@ -172,6 +172,7 @@ public struct Transaction: TransactionElementsTrait, TransactionInitializationTr
     
     // MARK: Initialisation
     init(transaction: [String : NSObject]) {
+        
         self.account = transaction["_account"] as! String
         self.id = transaction["_id"] as! String
         
