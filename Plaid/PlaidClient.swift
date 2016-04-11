@@ -8,15 +8,56 @@
 
 import Foundation
 
-public class PlaidClient: NSObject {
+private protocol AuthenticationTrait {
+    var clientID: String { get }
+    var secretKey: String { get }
+    var accessToken: String? { get }
+}
+
+private protocol DestinationTrait {
+    var productionMode: Bool { get set }
+    var apiHost: String { get }
+}
+
+private protocol InitializationTrait {
+    init(clientID: String, secretKey: String, productionMode: Bool)
+    init(clientID: String, secretKey: String, productionMode: Bool, accessToken: String)
+    func apiHost(productionMode productionMode: Bool) -> String
+}
+
+public class PlaidClient: NSObject, AuthenticationTrait, DestinationTrait, InitializationTrait {
     
     // MARK: Authentication
-    public var clientID: String
-    public var secretKey: String
-    public var token: String?
     
-    // MARK: Location
+    /**
+     To gain access to the Plaid API, create an account on [https://plaid.com](https://plaid.com). Upon completion of the signup process and acknowledgement of our terms, you will be provided with a live `client_id` and `secret` on the dashboard.
+     */
+    public var clientID: String
+    
+    /**
+     To gain access to the Plaid API, create an account on [https://plaid.com](https://plaid.com). Upon completion of the signup process and acknowledgement of our terms, you will be provided with a live `client_id` and `secret` on the dashboard.
+     */
+    public var secretKey: String
+    
+    /**
+     The `ACCESS_TOKEN` of the user whose account you wish to query.
+     */
+    public var accessToken: String?
+    
+    // MARK: Destination
+    
+    /**
+     @description Set to `false` to send requests to [https://tartan.plaid.com/](https://tartan.plaid.com/) 
+     or to `true` for the Production server.
+     
+     @info `true` = Production Mode and `false` = Development Mode.
+     
+     */
     private var productionMode: Bool
+    
+    /**
+     API Host in use (Development/Production. See `private var productionMode: Bool { get } ` for more.
+     */
     internal var apiHost: String {
         get {
             return self.apiHost(productionMode: productionMode)
@@ -24,20 +65,39 @@ public class PlaidClient: NSObject {
     }
     
     // MARK: Initialisation
-    public init(clientID: String, secretKey: String, productionMode: Bool) {
+    
+    /**
+     @description Initialise a new **PlaidClient** object with standard details.
+     
+     @return new `PlaidClient()`.
+     */
+    public required init(clientID: String, secretKey: String, productionMode: Bool) {
         self.clientID = clientID
         self.secretKey = secretKey
         self.productionMode = productionMode
     }
     
-    public init(clientID: String, secretKey: String, productionMode: Bool, token: String) {
+    /**
+     @description Initialise a new **PlaidClient** object with standard details and a token.
+     
+     @return new `PlaidClient()`.
+     */
+    public required init(clientID: String, secretKey: String, productionMode: Bool, accessToken: String) {
         self.clientID = clientID
         self.secretKey = secretKey
         self.productionMode = productionMode
-        self.token = token
+        self.accessToken = accessToken
     }
     
     // MARK: Modelling
+    
+    /**
+     @description Return an API Host for which mode the environment is in.
+     
+     @info `true` = Production Mode and `false` = Development Mode.
+     
+     @return `String`.
+     */
     private func apiHost(productionMode productionMode: Bool) -> String {
         guard productionMode else {
             return PlaidConstants.DevelopmentAPIHost
@@ -45,5 +105,4 @@ public class PlaidClient: NSObject {
         
         return PlaidConstants.ProductionAPIHost
     }
-    
 }

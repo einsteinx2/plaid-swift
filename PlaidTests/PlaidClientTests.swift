@@ -26,7 +26,7 @@ class PlaidClientTests: XCTestCase {
     /**
      @description Initialises a new **PlaidClient** object and prints out important details about that instance.
      
-     @return None.
+     @return Nothing.
      */
     func testPrintClientDetails() {
         let client = self.testCreateNewClient()
