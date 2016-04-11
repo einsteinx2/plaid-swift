@@ -12,6 +12,8 @@
 		72FB18291CBB4EA500B385D2 /* PlaidClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB18281CBB4EA500B385D2 /* PlaidClient.swift */; };
 		72FB182B1CBB5D7300B385D2 /* PlaidConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB182A1CBB5D7300B385D2 /* PlaidConstants.swift */; };
 		72FB182D1CBB5F6E00B385D2 /* PlaidClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB182C1CBB5F6E00B385D2 /* PlaidClientTests.swift */; };
+		72FB18301CBB6DF200B385D2 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB182F1CBB6DF200B385D2 /* Transaction.swift */; };
+		72FB18321CBB6DF900B385D2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB18311CBB6DF900B385D2 /* Account.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,8 @@
 		72FB18281CBB4EA500B385D2 /* PlaidClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaidClient.swift; sourceTree = "<group>"; };
 		72FB182A1CBB5D7300B385D2 /* PlaidConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaidConstants.swift; sourceTree = "<group>"; };
 		72FB182C1CBB5F6E00B385D2 /* PlaidClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaidClientTests.swift; sourceTree = "<group>"; };
+		72FB182F1CBB6DF200B385D2 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Transaction.swift; path = Connect/Transaction.swift; sourceTree = "<group>"; };
+		72FB18311CBB6DF900B385D2 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Connect/Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 				7275E8CB1CB9D29D002E6606 /* Plaid.h */,
 				72FB18281CBB4EA500B385D2 /* PlaidClient.swift */,
 				72FB182A1CBB5D7300B385D2 /* PlaidConstants.swift */,
+				72FB182E1CBB6DD600B385D2 /* Connect */,
 				7275E8CD1CB9D29D002E6606 /* Info.plist */,
 			);
 			path = Plaid;
@@ -90,6 +95,15 @@
 				7275E8D91CB9D29D002E6606 /* Info.plist */,
 			);
 			path = PlaidTests;
+			sourceTree = "<group>";
+		};
+		72FB182E1CBB6DD600B385D2 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				72FB182F1CBB6DF200B385D2 /* Transaction.swift */,
+				72FB18311CBB6DF900B385D2 /* Account.swift */,
+			);
+			name = Connect;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +216,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				72FB182B1CBB5D7300B385D2 /* PlaidConstants.swift in Sources */,
+				72FB18321CBB6DF900B385D2 /* Account.swift in Sources */,
 				72FB18291CBB4EA500B385D2 /* PlaidClient.swift in Sources */,
+				72FB18301CBB6DF200B385D2 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

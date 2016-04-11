@@ -19,13 +19,13 @@ private protocol DestinationTrait {
     var apiHost: String { get }
 }
 
-private protocol InitializationTrait {
+private protocol ClientInitializationTrait {
     init(clientID: String, secretKey: String, productionMode: Bool)
     init(clientID: String, secretKey: String, productionMode: Bool, accessToken: String)
     func apiHost(productionMode productionMode: Bool) -> String
 }
 
-public class PlaidClient: NSObject, AuthenticationTrait, DestinationTrait, InitializationTrait {
+public class PlaidClient: NSObject, AuthenticationTrait, DestinationTrait, ClientInitializationTrait {
     
     // MARK: Authentication
     
