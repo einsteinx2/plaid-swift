@@ -13,7 +13,8 @@ public class PlaidClient: NSObject {
     // MARK: Authentication
     public var clientID: String
     public var secretKey: String
-
+    public var token: String?
+    
     // MARK: Location
     private var productionMode: Bool
     public var apiHost: String {
@@ -27,6 +28,13 @@ public class PlaidClient: NSObject {
         self.clientID = clientID
         self.secretKey = secretKey
         self.productionMode = productionMode
+    }
+    
+    public init(clientID: String, secretKey: String, productionMode: Bool, token: String) {
+        self.clientID = clientID
+        self.secretKey = secretKey
+        self.productionMode = productionMode
+        self.token = token
     }
     
     // MARK: Modelling
