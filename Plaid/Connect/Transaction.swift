@@ -35,6 +35,7 @@ private protocol TransactionElementsTrait {
     var stateScore: Float? { get }
     var cityScore: Float? { get }
     var addressScore: Float? { get }
+    var scoreName: String? { get }
     
     var referenceNumber: Int? { get }
     var pendingTransaction: Bool? { get }
@@ -45,7 +46,7 @@ private protocol TransactionInitializationTrait {
     init(transaction: [String: NSObject])
 }
 
-public struct Transaction: TransactionElementsTrait {
+public struct Transaction: TransactionElementsTrait, TransactionInitializationTrait {
     
     // MARK: Properties
     
@@ -152,6 +153,11 @@ public struct Transaction: TransactionElementsTrait {
     /**
      A numeric representation of our confidence in the meta data we attached to the transaction. In the case of a score <.9 we will default to guaranteed and known information.
      */
+    public var scoreName: String?
+    
+    /**
+     A numeric representation of our confidence in the meta data we attached to the transaction. In the case of a score <.9 we will default to guaranteed and known information.
+     */
     public var addressScore: Float?
     
     /**
@@ -165,5 +171,99 @@ public struct Transaction: TransactionElementsTrait {
     public var pendingTransaction: Bool?
     
     // MARK: Initialisation
-    
+    init(transaction: [String : NSObject]) {
+        self.account = transaction["_account"] as! String
+        self.id = transaction["_id"] as! String
+        
+        if let name = transaction["name"] as? String {
+            self.name = name
+        }
+        
+        if let amount = transaction["amount"] as? Float {
+            self.amount = amount
+        }
+        
+        if let dateString = transaction["date"] as? String {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            
+            if let date = formatter.dateFromString(dateString) {
+                self.date = date
+            }
+        }
+        
+        if let meta = transaction["meta"] as? [String: NSObject] {
+            if let location = meta["location"] as? [String: NSObject] {
+                if let address = location["address"] as? String {
+                    self.address = address
+                }
+                
+                if let city = location["city"] as? String {
+                    self.city = city
+                }
+                
+                if let state = location["state"] as? String {
+                    self.state = state
+                }
+                
+                if let zip = location["zip"] as? String {
+                    self.zip = zip
+                }
+                
+                if let coordinates = location["coordinates"] as? [String: Double] {
+                    if let longitude = coordinates["lon"] {
+                        self.longitude = longitude
+                    }
+                    
+                    if let latitude = coordinates["lat"] {
+                        self.latitude = latitude
+                    }
+                }
+            }
+            
+            if let contact = meta["contact"] as? String {
+                self.contact = contact
+            }
+            
+            self.meta = meta
+        }
+        
+        if let pending = transaction["pending"] as? Bool {
+            self.pending = pending
+        }
+        
+        if let type = transaction["type"] as? [String: NSObject] {
+            self.type = type
+        }
+        
+        if let category = transaction["category"] as? [String: [String]] {
+            self.category = category
+        }
+        
+        if let categoryID = transaction["category_id"] as? String {
+            self.categoryID = categoryID
+        }
+        
+        if let score = transaction["score"] as? [String: NSObject] {
+            if let location = score["score"] as? [String: Float] {
+                if let addressScore = location["address"] {
+                    self.addressScore = addressScore
+                }
+                
+                if let cityScore = location["city"] {
+                    self.cityScore = cityScore
+                }
+                
+                if let stateScore = location["state"] {
+                    self.stateScore = stateScore
+                }
+            }
+            
+            if let scoreName = score["name"] as? String {
+                self.scoreName = scoreName
+            }
+            
+            self.score = score
+        }
+    }
 }
